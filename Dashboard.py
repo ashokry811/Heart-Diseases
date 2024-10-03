@@ -14,12 +14,11 @@ pip install --upgrade numpy
 pip show numpy
 
 # Load dataset
-file_path = 'cleaned_dataset.csv'  # Make sure this file is in the same directory
 try:
-    df = pd.read_csv(file_path)  # Use the variable instead of hardcoding
-except FileNotFoundError:
-    st.error(f"File not found. Please upload the file: {file_path}")
-    st.stop()  # Stop execution if the file is not found
+    df = pd.read_csv('cleaned_dataset.csv')
+except Exception as e:
+    st.error(f"Error loading data: {e}")
+
 
 # Check if the dataframe is empty after loading
 if df.empty:
