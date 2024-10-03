@@ -1,6 +1,6 @@
-streamlit==1.39.0
+numpy>=1.23,<2.0  # Make sure to limit the version to below 2.0
 pandas==2.2.3
-plotly==5.10.0
-seaborn==0.13.2
 matplotlib==3.9.2
-numpy>=1.26.0
+seaborn==0.13.2
+plotly==5.10.0
+streamlit==1.39.0
