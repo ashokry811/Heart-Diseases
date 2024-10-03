@@ -4,14 +4,7 @@ import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Check current numpy version
-pip show numpy
 
-# Upgrade numpy if necessary
-pip install --upgrade numpy
-
-# Verify the upgrade
-pip show numpy
 
 # Load dataset
 try:
