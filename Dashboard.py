@@ -4,6 +4,8 @@ import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+pip show numpy
+
 # Load dataset
 file_path = 'cleaned_dataset.csv'  # Make sure this file is in the same directory
 try:
