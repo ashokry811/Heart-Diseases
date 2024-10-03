@@ -7,9 +7,15 @@ import matplotlib.pyplot as plt
 # Load dataset
 file_path = 'cleaned_dataset.csv'  # Make sure this file is in the same directory
 try:
-    df = pd.read_csv(r'cleaned_dataset.csv')
+    df = pd.read_csv(file_path)  # Use the variable instead of hardcoding
 except FileNotFoundError:
     st.error(f"File not found. Please upload the file: {file_path}")
+    st.stop()  # Stop execution if the file is not found
+
+# Check if the dataframe is empty after loading
+if df.empty:
+    st.error("The dataset is empty. Please check the content of your CSV file.")
+    st.stop()  # Stop execution if the dataframe is empty
 
 # Handling missing values
 if df.isnull().values.any():
@@ -94,9 +100,10 @@ else:
     st.pyplot(fig)
 
 # Download button for the filtered data
+csv = filtered_df.to_csv(index=False)  # Convert to CSV string for download
 st.sidebar.download_button(
     label="Download Filtered Data",
-    data=filtered_df.to_csv(index=False),
+    data=csv,
     file_name="filtered_healthcare_data.csv",
     mime='text/csv'
 )
